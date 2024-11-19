@@ -11,7 +11,7 @@ public class BulletController : PooledBehaviour
 
     private Rigidbody _rigidbody;
     private WaitForSeconds _wait;
-    
+
     private void Awake()
     {
         Init();
@@ -26,9 +26,7 @@ public class BulletController : PooledBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other
-                .GetComponent<PlayerController>()
-                .TakeHit(_damageValue);
+            other.GetComponent<PlayerController>().TakeHit(_damageValue);
         }
     }
 
@@ -37,7 +35,7 @@ public class BulletController : PooledBehaviour
         _wait = new WaitForSeconds(_deactivateTime);
         _rigidbody = GetComponent<Rigidbody>();
     }
-    
+
     private void Fire()
     {
         _rigidbody.AddForce(transform.forward * _force, ForceMode.Impulse);
@@ -58,7 +56,7 @@ public class BulletController : PooledBehaviour
     public override void OnTaken<T>(T t)
     {
         if (!(t is Transform)) return;
-        
+
         transform.LookAt((t as Transform));
         Fire();
     }
