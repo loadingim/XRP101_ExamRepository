@@ -11,4 +11,5 @@
 제시된 프로젝트에서 발생하는 `문제들을 모두 서술`하고 올바르게 동작하도록 `소스코드를 개선`하시오.
 
 ## 답안
-- 
+- 캠에서 처음보는 함수가 등장...._followTarget.SetPositionAndRotation(transform.position, transform.rotation); 이 부분을 어떻게 작동하는건지 알 수 없어 transform.position = _followTarget.position; transform.rotation = _followTarget.rotation; 부분으로 나누어 작성
+- Fire Ray부분은 인자값을 받아오지 않고 캐릭터가 바라보는 방향 정면에서 Ray를 쏘도록 변경
