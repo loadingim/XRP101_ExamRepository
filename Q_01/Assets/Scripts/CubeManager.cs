@@ -11,12 +11,13 @@ public class CubeManager : MonoBehaviour
 
     private void Awake()
     {
-        SetCubePosition(3, 0, 3);
+        CreateCube();
     }
 
     private void Start()
     {
-        CreateCube();
+        // 크레이트 큐브로 초기화 시켜주고 셋 큐브 포지션 함수를 실행하도록 변경
+        SetCubePosition(3, 0, 3);
     }
 
     private void SetCubePosition(float x, float y, float z)
@@ -24,7 +25,8 @@ public class CubeManager : MonoBehaviour
         _cubeSetPoint.x = x;
         _cubeSetPoint.y = y;
         _cubeSetPoint.z = z;
-        _cubeController.SetPosition();
+        _cubeController.SetPosition(_cubeSetPoint.x, _cubeSetPoint.y, _cubeSetPoint.z);
+
     }
 
     private void CreateCube()
