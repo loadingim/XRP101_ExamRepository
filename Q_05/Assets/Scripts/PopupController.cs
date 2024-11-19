@@ -38,6 +38,7 @@ public class PopupController : MonoBehaviour
     private void Deactivate()
     {
         _popup.gameObject.SetActive(false);
+        GameManager.Intance.Score = GameManager.Intance.temp;
     }
 
     private IEnumerator DeactivateRoutine()
