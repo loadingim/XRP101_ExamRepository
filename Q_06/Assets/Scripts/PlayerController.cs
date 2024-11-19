@@ -31,7 +31,9 @@ public class PlayerController : MonoBehaviour
         CameraController cam = Camera.main.GetComponent<CameraController>();
         cam.FollowTarget = _muzzlePoint;
 
+        // 마우스 비활성화 부분;
         Cursor.visible = false;
+        // 고정
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -39,7 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            _gun.Fire(_muzzlePoint);    
+            _gun.Fire();    
         }
     }
 

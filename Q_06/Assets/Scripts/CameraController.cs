@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class CameraController : MonoBehaviour
 {
-    private bool _hasFollowTarget;
-    private Transform _followTarget;
+    [SerializeField] private bool _hasFollowTarget;
+    [SerializeField] private Transform _followTarget;
     public Transform FollowTarget
     {
         get => _followTarget;
@@ -24,9 +25,9 @@ public class CameraController : MonoBehaviour
     {
         if (!_hasFollowTarget) return;
 
-        _followTarget.SetPositionAndRotation(
-            transform.position,
-            transform.rotation
-            );
+        transform.position = _followTarget.position;
+        transform.rotation = _followTarget.rotation;
+
+        //_followTarget.SetPositionAndRotation(transform.position, transform.rotation);
     }
 }
