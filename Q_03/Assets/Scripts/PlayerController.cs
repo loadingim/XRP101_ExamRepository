@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [field: Range(0, 100)]
     public int Hp { get; private set; }
 
-    private AudioSource _audio;
+    public AudioSource _audio;
 
     private void Awake()
     {
@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        Debug.Log("½ÇÇà");
         _audio.Play();
         gameObject.SetActive(false);
     }
