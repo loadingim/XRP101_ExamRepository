@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
-    public float MoveSpeed
-    {
-        get => MoveSpeed;
-        private set => MoveSpeed = value;
-    }
+    float value;
+
+    // 값을 리턴해 주는 부분이 자기 자신이라 무한으로 돌고 있어 새로운 값을 만들어 할당해준다.
+    public float MoveSpeed {get { return value; }}
 
     private void Awake()
     {
@@ -17,6 +16,6 @@ public class PlayerStatus : MonoBehaviour
 
     private void Init()
     {
-        MoveSpeed = 5f;
+        value = 5f;
     }
 }
