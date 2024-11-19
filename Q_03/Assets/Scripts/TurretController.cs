@@ -19,10 +19,8 @@ public class TurretController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("플레이어 진입");
         if (other.CompareTag("Player"))
         {
-            Debug.Log("플레이어 포착");
             Fire(other.transform);
         }
     }
@@ -38,7 +36,6 @@ public class TurretController : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("루틴");
             yield return _wait;
 
             transform.rotation = Quaternion.LookRotation(new Vector3(target.position.x, 0, target.position.z));
@@ -57,7 +54,10 @@ public class TurretController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("스탑");
-        StopAllCoroutines();
+        if (other.CompareTag("Player"))
+        {
+            StopAllCoroutines();
+        }
+        
     }
 }
